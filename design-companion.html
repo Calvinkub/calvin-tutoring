@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoring Website Design - Visual Companion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #60a5fa;
+            font-size: 2.5em;
+        }
+
+        .design-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .design-card {
+            background: #1e293b;
+            border: 2px solid #334155;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .design-card:hover {
+            border-color: #60a5fa;
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+        }
+
+        .design-card h2 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .design-card .approach {
+            background: #0f172a;
+            padding: 15px;
+            border-left: 3px solid #60a5fa;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .design-card .pros, .design-card .cons {
+            margin-bottom: 15px;
+        }
+
+        .design-card .pros h4, .design-card .cons h4 {
+            color: #4ade80;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .design-card .cons h4 {
+            color: #f87171;
+        }
+
+        .design-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .design-card li {
+            padding-left: 20px;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .design-card .pros li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .design-card .cons li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #f87171;
+        }
+
+        .recommended {
+            border-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.05);
+        }
+
+        .recommended::before {
+            content: "★ RECOMMENDED";
+            display: block;
+            color: #fbbf24;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 0.85em;
+        }
+
+        .mockup-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .mockup-section h2 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+
+        .mockup {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+
+        .hero-mockup {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .hero-mockup h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .hero-mockup p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #60a5fa;
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: #3b82f6;
+        }
+
+        .about-mockup {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            padding: 30px;
+            background: #1e293b;
+            border-radius: 8px;
+        }
+
+        .about-text h3 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            background: #334155;
+            height: 250px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .course-card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #60a5fa;
+        }
+
+        .course-card h4 {
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .course-price {
+            font-size: 1.3em;
+            color: #4ade80;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .course-hours {
+            font-size: 0.9em;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .about-mockup {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Tutoring Website Design - Visual Companion</h1>
+
+        <div class="design-options">
+            <div class="design-card recommended">
+                <h2>Approach 1: Clean Academic + Code Focus</h2>
+                <div class="approach">
+                    Hero with code snippet background + your profile photo. Dark theme (blues/grays) with accent highlights. Section-based layout emphasizing credentials and course curriculum.
+                </div>
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Instantly communicates "technical expert"</li>
+                        <li>Code visuals resonate with students</li>
+                        <li>High credibility through credentials display</li>
+                        <li>Easy to implement & Vercel-friendly</li>
+                        <li>Clean, focused, no distraction</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Trade-offs</h4>
+                    <ul>
+                        <li>Might feel cold to younger high schoolers</li>
+                        <li>Requires good typography/spacing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="design-card">
+                <h2>Approach 2: Credentials-First Showcase</h2>
+                <div class="approach">
+                    Large hero showing your AXONS, Super AI, Hylife logos + awards section. Portrait photo prominent. Emphasis on "Taught by..." credibility. Course cards secondary.
+                </div>
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Maximum social proof upfront</li>
+                        <li>Impressive for career-changers</li>
+                        <li>Builds immediate trust</li>
+                        <li>Great for LinkedIn sharing</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Trade-offs</h4>
+                    <ul>
+                        <li>Takes longer to show course value</li>
+                        <li>Logo-heavy might feel cluttered</li>
+                        <li>Less focus on course details</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="design-card">
+                <h2>Approach 3: Student-Focused Curriculum</h2>
+                <div class="approach">
+                    Course cards are hero. Clean grid layout, each course shows: title, price, hours, what you'll build/learn. You appear in testimonial/about section lower down.
+                </div>
+                <div class="pros">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li>Fastest path to course selection</li>
+                        <li>High conversion for "just browsing"</li>
+                        <li>Clear pricing/commitment upfront</li>
+                        <li>Good for comparison shopping</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>Trade-offs</h4>
+                    <ul>
+                        <li>You feel less like the hero</li>
+                        <li>First-time visitors don't know who you are</li>
+                        <li>Less emotional connection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mockup-section">
+            <h2>My Recommended Design (Approach 1)</h2>
+            <p>Here's what the homepage structure would look like:</p>
+
+            <div class="mockup">
+                <h3 style="color: #60a5fa; margin-bottom: 20px;">1. Hero Section</h3>
+                <div class="hero-mockup">
+                    <h1>Learn Python, SQL & AI</h1>
+                    <p>Master data science fundamentals from a Super AI Engineer</p>
+                    <button class="cta-button">Explore Courses</button>
+                </div>
+                <p style="color: #94a3b8; font-size: 0.9em;">Background: Subtle code pattern or gradient. Your professional photo on side (desktop) or below (mobile).</p>
+            </div>
+
+            <div class="mockup">
+                <h3 style="color: #60a5fa; margin-bottom: 20px;">2. About Calvin Section</h3>
+                <div class="about-mockup">
+                    <div class="about-text">
+                        <h3>Why Learn from Me?</h3>
+                        <p><strong>Data Scientist Intern</strong> at AXONS (2025) • <strong>Super AI Engineer L2</strong> • <strong>Hackathon Winner</strong> (PINUP - Smart Living Track)</p>
+                        <p>3+ years AI/ML experience. Built production systems with LLMs, computer vision, and time-series forecasting. Currently teaching 100+ high school students at ITCAMP.</p>
+                        <p><strong>Contact:</strong> Instagram: @kanin_calvin</p>
+                    </div>
+                    <div class="about-image">Photo placeholder here</div>
+                </div>
+            </div>
+
+            <div class="mockup">
+                <h3 style="color: #60a5fa; margin-bottom: 20px;">3. Course Catalog</h3>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <h4>Python Fundamentals</h4>
+                        <div class="course-price">฿2,990</div>
+                        <div class="course-hours">8 hours</div>
+                        <p style="margin-top: 10px; font-size: 0.9em;">Variables, loops, functions, OOP basics</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>SQL Basics</h4>
+                        <div class="course-price">฿1,790</div>
+                        <div class="course-hours">3 hours</div>
+                        <p style="margin-top: 10px; font-size: 0.9em;">Queries, joins, aggregations</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>AI Beginner (sklearn)</h4>
+                        <div class="course-price">฿2,490</div>
+                        <div class="course-hours">5 hours</div>
+                        <p style="margin-top: 10px; font-size: 0.9em;">Classification, regression, model eval</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Math for AI</h4>
+                        <div class="course-price">฿1,290</div>
+                        <div class="course-hours">4 hours</div>
+                        <p style="margin-top: 10px; font-size: 0.9em;">Linear algebra, calculus, probability</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>AI Advanced</h4>
+                        <div class="course-price">฿5,000</div>
+                        <div class="course-hours">10 hours</div>
+                        <p style="margin-top: 10px; font-size: 0.9em;">LLMs, fine-tuning, computer vision</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mockup" style="margin-top: 20px;">
+                <h3 style="color: #60a5fa; margin-bottom: 20px;">4. Logos & Social Proof</h3>
+                <p>AXONS • Super AI Engineer • Hylife (with small descriptions of work)</p>
+                <p style="color: #94a3b8; margin-top: 10px; font-size: 0.9em;">Your logos arranged horizontally at bottom to show affiliations</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #1e293b; border-radius: 8px; border-left: 4px solid #60a5fa;">
+            <h3 style="color: #60a5fa; margin-bottom: 10px;">Tech Stack for Vercel</h3>
+            <p>✓ <strong>Next.js 14+</strong> (React, SSR, fast)</p>
+            <p>✓ <strong>Tailwind CSS</strong> (academic clean design)</p>
+            <p>✓ <strong>TypeScript</strong> (optional but professional)</p>
+            <p>✓ <strong>Vercel deployment</strong> (1-click from GitHub)</p>
+        </div>
+    </div>
+</body>
+</html>

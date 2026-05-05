@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Smooth hover effects */
+button, a {
+  @apply transition-all duration-300;
+}
+
+button:hover {
+  @apply transform translate-y-0.5;
+}
