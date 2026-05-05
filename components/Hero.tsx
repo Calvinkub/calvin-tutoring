@@ -10,7 +10,7 @@ export default function Hero() {
           สอนพิเศษ Python, SQL & AI
         </h1>
         <p className="text-lg text-gray-600 mb-4 leading-7">
-          สวัสดี ผมชื่อคาลวิน นักเรียนชั้นปีที่ 3 สาขา AI Engineering จาก KMITL พร้อมสอนให้ความรู้จากประสบการณ์จริงในโลกของ Data Science และ AI
+          สวัสดี ผมชื่อแคลวิณ นักเรียนชั้นปีที่ 3 สาขา AI Engineering จาก KMITL พร้อมสอนให้ความรู้จากประสบการณ์จริงในโลกของ Data Science และ AI
         </p>
 
         <div className="bg-gray-50 p-5 rounded-lg my-8">
