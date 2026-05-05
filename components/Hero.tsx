@@ -69,7 +69,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-2">
             <i className="fas fa-phone text-blue-500 text-xl w-6 text-center"></i>
-            <span className="text-gray-700">0812-096-847</span>
+            <span className="text-gray-700">081-209-6847</span>
           </div>
         </div>
       </div>
